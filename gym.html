@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gym website</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: url('header.png') center/cover no-repeat;
+      height: 100vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    header h1 {
+      font-size: 6rem;
+      background: rgba(255, 0, 0, 0.942);
+      padding: 10px 20px;
+      border-radius: 10px;
+    }
+
+    header p{
+        font-size: 2rem;
+        font-weight: bold;
+        padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #111;
+      padding: 20px;
+      text-align: center;
+      gap:200px; 
+    }
+
+   
+    .left-side{
+      color: rgb(255, 255, 255);
+      font-size:2rem;
+      padding-left: 200px;
+    }
+    .right-side a{
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.4rem;
+      padding-left: 50px;
+    }
+
+    section {
+      padding: 60px 20px;
+      text-align: center;
+      background: url('sec1.jpg') center/cover no-repeat;
+    }
+
+    h2 {
+      color: rgba(0, 0, 0, 0.663);
+      margin-bottom: 20px;
+      font-size: 2rem;
+      background: rgba(255, 255, 255, 0.768);
+      padding: 10px;
+      margin: 100px;
+      border-radius: 10px;
+    }
+    h2:hover{
+        color: rgb(94, 167, 255);
+        font-size: 2.1rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 50px;
+      padding: 100px;
+    }
+
+    .card {
+      background: #ffffffbf;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      font-weight: bold;
+      border: 3px solid #0062ff;
+    }
+
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+  
+</head>
+<body>
+
+  <nav>
+    <div class="left-side">
+      <h3>
+        PowerGym
+      </h3>
+    </div>
+   <div class="right-side">
+    <a href="#home">Home</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#services">Services</a>
+    <a href="#plans">Plans</a>
+   </div>
+  </nav>
+
+  <header id="home">
+    <h1>Welcome to PowerGym</h1>
+    <p>Your Fitness Journey Starts Here</p>
+  </header>
+
+  <section id="facilities">
+    <h2>--- Our Facilities ---</h2>
+    <div class="grid">
+      <div class="card">🏋️ Modern Gym Equipment</div>
+      <div class="card">💪 Strength Training Arena</div>
+      <div class="card">🚴 Cardio Section</div>
+      <div class="card">🧘 Yoga & Meditation Room</div>
+    </div>
+  
+    <h2>--- Services We Provide ---</h2>
+    <div class="grid" id="services">
+      <div class="card">✔ Personal Training</div>
+      <div class="card">✔ Diet & Nutrition Guidance</div>
+      <div class="card">✔ Body Transformation Programs</div>
+      <div class="card">✔ Fitness Coaching Sessions</div>
+    </div>
+  
+    <h2>--- Membership Plans ---</h2>
+    <div class="grid" id="plans">
+      <div class="card">
+        <h3>Basic Plan</h3>
+        <p>₹499 / month</p>
+        <p>Gym Access Only</p>
+      </div>
+
+      <div class="card">
+        <h3>Standard Plan</h3>
+        <p>₹999 / month</p>
+        <p>Gym + Cardio + Yoga</p>
+      </div>
+
+      <div class="card">
+        <h3>Premium Plan</h3>
+        <p>₹1499 / month</p>
+        <p>All Facilities + Personal Trainer</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 PowerGym. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth Navigation Highlight
+    const navLinks = document.querySelectorAll('nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      document.querySelectorAll('section, header, div').forEach(section => {
+        const top = window.scrollY;
+        if (top >= section.offsetTop - 100) current = section.getAttribute('id');
+      });
+
+      navLinks.forEach(a => {
+        a.style.color = (a.getAttribute('href') === '#' + current) ? 'rgb(8, 203, 203)' : '#fff';
+      });
+    });
+  </script>
+</body>
+</html>
